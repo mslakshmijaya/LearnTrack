@@ -4,10 +4,10 @@ import com.airtribe.learntrack.entity.Course;
 import com.airtribe.learntrack.entity.Enrollment;
 import com.airtribe.learntrack.entity.Student;
 import com.airtribe.learntrack.exception.EntityNotFoundException;
-import com.airtribe.learntrack.util.EnumHelperClass;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.airtribe.learntrack.util.EnrollmentStatus.CANCELLED;
 
 public class EnrollmentService {
     private static List<Enrollment> enrollmentList = new ArrayList<Enrollment>();
@@ -24,10 +24,12 @@ public class EnrollmentService {
                     .append(enrollment.getStatus());
 
             System.out.println(buffer.toString());
+            return;
         }
+        System.out.println("No enrollments found");
     }
 
-    public static void addEnrollment(int studentId, int courseId) throws EntityNotFoundException {
+    public static void addEnrollment(long studentId, long courseId) throws EntityNotFoundException {
 
         Enrollment enrollment = new Enrollment(studentId, courseId);
         List<Student> studentList = StudentService.studentList;
@@ -59,7 +61,7 @@ public class EnrollmentService {
 
         for (Enrollment enrollment : enrollmentList) {
             if (enrollment.getId() == id) {
-                enrollment.setStatus(String.valueOf(EnumHelperClass.CANCELLED));
+                enrollment.setStatus(CANCELLED);
                 return;
             }
         }

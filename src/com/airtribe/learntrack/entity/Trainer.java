@@ -1,12 +1,12 @@
 package com.airtribe.learntrack.entity;
 
 public class Trainer extends Person{
-    public Trainer(String firstname,String lastName,String email){
-        super(firstname,lastName,email);
+    public Trainer(String firstName,String lastName,String email){
+        super(firstName,lastName,email);
 
     }
     @Override
-    public void getDisplayName(String name) {
-        System.out.println("Student Name: "+name);
+    public void printDisplayName(String name) {
+        System.out.println("Trainer Name: "+name);
     }
 }

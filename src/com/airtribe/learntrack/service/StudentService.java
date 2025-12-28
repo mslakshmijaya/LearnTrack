@@ -9,8 +9,8 @@ import java.util.List;
 public class StudentService {
     public static List<Student> studentList = new ArrayList<Student>();
 
-    public static void addStudent(String firstname, String lastname, String email) {
-        Student student = new Student(firstname, lastname, email);
+    public static void addStudent(String firstName, String lastName, String email) {
+        Student student = new Student(firstName, lastName, email);
         studentList.add(student);
     }
 
@@ -25,7 +25,9 @@ public class StudentService {
                     .append(s.isActive());
 
             System.out.println(buffer.toString());
+            return;
         }
+        System.out.println("No course found");
 
     }
 
@@ -33,7 +35,7 @@ public class StudentService {
         for (Student s : studentList) {
             if (s.getId() == id) {
                 s.setActive(false);
-               return;
+                return;
             }
         }
         System.out.println("Student Id not found to deactivate");
@@ -50,7 +52,7 @@ public class StudentService {
                         .append(s.isActive());
 
                 System.out.println(buffer.toString());
-              return;
+                return;
             }
 
         }

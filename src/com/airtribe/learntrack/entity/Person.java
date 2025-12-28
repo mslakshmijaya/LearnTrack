@@ -3,7 +3,9 @@ package com.airtribe.learntrack.entity;
 import com.airtribe.learntrack.util.IdGenerator;
 
 public abstract class Person {
-    private String firstName, lastName,email;
+    private String firstName;
+    private String lastName;
+    private String email;
 
     public int getId() {
         return id;
@@ -14,15 +16,17 @@ public abstract class Person {
     }
 
     private int id;
-    public Person(String firstname,String lastName){
+
+    public Person(String firstName, String lastName) {
         this.id = IdGenerator.getNextStudentId();
-        this.firstName = firstname;
+        this.firstName = firstName;
         this.lastName = lastName;
 
     }
-    public Person(String firstname,String lastName,String email){
+
+    public Person(String firstName, String lastName, String email) {
         this.id = IdGenerator.getNextStudentId();
-        this.firstName = firstname;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
@@ -51,6 +55,7 @@ public abstract class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-   public abstract void getDisplayName(String name);
+
+    public abstract void printDisplayName(String name);
 
 }

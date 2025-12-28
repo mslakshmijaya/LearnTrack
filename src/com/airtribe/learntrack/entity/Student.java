@@ -1,18 +1,17 @@
 package com.airtribe.learntrack.entity;
 
-import com.airtribe.learntrack.entity.Person;
-
 import java.util.Objects;
 
 public class Student extends Person {
 
-   private String  batch;
-   private  boolean active;
+    private String batch;
+    private boolean active;
 
-   public Student(String firstname,String lastName,String email){
-       super(firstname,lastName,email);
-              this.active=true;
-   }
+    public Student(String firstName, String lastName, String email) {
+        super(firstName, lastName, email);
+        this.active = true;
+    }
+
     public String getBatch() {
         return batch;
     }
@@ -30,7 +29,8 @@ public class Student extends Person {
     }
 
     @Override
-    public void getDisplayName(String name) {
-        System.out.println("Student Name: "+name);
+    public void printDisplayName(String name) {
+        System.out.println("Student Name: " + name);
     }
 }
+

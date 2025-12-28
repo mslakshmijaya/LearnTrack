@@ -3,10 +3,13 @@ package com.airtribe.learntrack.entity;
 import com.airtribe.learntrack.util.IdGenerator;
 
 public class Course {
-    private String courseName, description, durationInWeeks;
+    private String courseName;
+    private String description;
+    int durationInWeeks;
     private boolean active;
- private int id;
-    public Course(String courseName, String description, String durationInWeeks) {
+    private int id;
+
+    public Course(String courseName, String description, int durationInWeeks) {
         this.courseName = courseName;
         this.description = description;
         this.durationInWeeks = durationInWeeks;
@@ -38,11 +41,11 @@ public class Course {
         this.description = description;
     }
 
-    public String getDurationInWeeks() {
+    public int getDurationInWeeks() {
         return durationInWeeks;
     }
 
-    public void setDurationInWeeks(String durationInWeeks) {
+    public void setDurationInWeeks(int durationInWeeks) {
         this.durationInWeeks = durationInWeeks;
     }
 

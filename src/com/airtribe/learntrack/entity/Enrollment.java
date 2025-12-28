@@ -1,21 +1,26 @@
 package com.airtribe.learntrack.entity;
 
-import com.airtribe.learntrack.util.EnumHelperClass;
+import com.airtribe.learntrack.util.EnrollmentStatus;
 import com.airtribe.learntrack.util.IdGenerator;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Enrollment {
-    private String enrollmentDate, status;
-    private int id, studentId, courseId;
+    private String enrollmentDate;
+    private EnrollmentStatus status;
+    private int id;
+    private long studentId;
+    private long courseId;
 
-    public Enrollment(int studentId, int courseId) {
+    public Enrollment(long studentId, long courseId) {
 
         this.id = IdGenerator.getNextEnrollmentId();
         this.studentId = studentId;
         this.courseId = courseId;
-        this.enrollmentDate = new Date().toString();
-        this.status = String.valueOf(EnumHelperClass.ACTIVE);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.enrollmentDate = sdf.format(new Date());
+        this.status = EnrollmentStatus.ACTIVE;
     }
 
     public int getId() {
@@ -26,19 +31,19 @@ public class Enrollment {
         this.id = id;
     }
 
-    public int getStudentId() {
+    public long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 
-    public int getCourseId() {
+    public long getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public void setCourseId(long courseId) {
         this.courseId = courseId;
     }
 
@@ -50,11 +55,11 @@ public class Enrollment {
         this.enrollmentDate = enrollmentDate;
     }
 
-    public String getStatus() {
+    public EnrollmentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(EnrollmentStatus status) {
         this.status = status;
     }
 }

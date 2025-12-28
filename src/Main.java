@@ -31,11 +31,11 @@ public class Main {
         System.out.println("-----Please enter  Student details  -------");
         Scanner input = new Scanner(System.in);
         System.out.println(" first name : ");
-        String firstName = input.nextLine();
+        String firstName = input.nextLine().trim();
         System.out.println(" last name : ");
-        String lastName = input.nextLine();
+        String lastName = input.nextLine().trim();
         System.out.println(" email : ");
-        String email = input.nextLine();
+        String email = input.nextLine().trim();
         StudentService.addStudent(firstName, lastName, email);
     }
 
@@ -43,11 +43,11 @@ public class Main {
         Scanner input = new Scanner(System.in);
         System.out.println("-----Please enter Course details -------");
         System.out.println(" course name : ");
-        String courseName = input.nextLine();
+        String courseName = input.nextLine().trim();
         System.out.println(" description : ");
-        String description = input.nextLine();
+        String description = input.nextLine().trim();
         System.out.println(" duration in weeks : ");
-        String duration = input.nextLine();
+        int duration = input.nextInt();
         CourseService.addCourse(courseName, description, duration);
     }
 
@@ -55,9 +55,9 @@ public class Main {
         try {
             Scanner input = new Scanner(System.in);
             System.out.println(" Student ID : ");
-            int studentId = input.nextInt();
+            long studentId = input.nextLong();
             System.out.println(" course ID : ");
-            int courseId = input.nextInt();
+            long courseId = input.nextLong();
             EnrollmentService.addEnrollment(studentId, courseId);
         } catch (EntityNotFoundException e) {
             System.out.println(" Not a Valid Student ID or course ID or both ");
@@ -81,18 +81,18 @@ public class Main {
                         int id = input.nextInt();
                         StudentService.deactivateStudent(id);
                     }
-                    case 4-> {
+                    case 4 -> {
                         System.out.println("----- search student by ID -------");
                         int id = input.nextInt();
                         StudentService.searchStudentById(id);
                     }
                     case 5 -> addCourse();
-                    case 6-> CourseService.displayCourseDetails();
+                    case 6 -> CourseService.displayCourseDetails();
                     case 7 -> {
                         System.out.println("----- enter course Id to deactivate -------");
                         CourseService.deactivateCourse(input.nextInt());
                     }
-                    case 8-> enrollStudent();
+                    case 8 -> enrollStudent();
                     case 9 -> EnrollmentService.getEnrollments();
                     case 10 -> {
                         System.out.println(" Enrollment ID : ");
@@ -105,8 +105,7 @@ public class Main {
 
             }
             System.out.println("Thanks you visit again");
-        }
-        catch (InvalidInputException e) {
+        } catch (InvalidInputException e) {
             System.out.println(e.getMessage());
         }
     }

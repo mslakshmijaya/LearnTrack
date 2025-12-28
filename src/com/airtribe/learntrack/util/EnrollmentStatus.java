@@ -1,6 +1,6 @@
 package com.airtribe.learntrack.util;
 
-public enum EnumHelperClass {
+public enum EnrollmentStatus {
 
     COMPLETED,
     CANCELLED,
