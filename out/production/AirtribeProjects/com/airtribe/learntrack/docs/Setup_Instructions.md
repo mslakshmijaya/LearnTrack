@@ -1,6 +1,6 @@
 ## Prerequisites
-- JDK 8 or above
-- Java installed and configured - jdk-25.0.1
+
+**JDK:** 25 or later
 
 
 ## Sample HelloWorld Program . 
