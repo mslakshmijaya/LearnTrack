@@ -27,7 +27,7 @@ public class StudentService {
             System.out.println(buffer.toString());
             return;
         }
-        System.out.println("No course found");
+        System.out.println("No Student found");
 
     }
 

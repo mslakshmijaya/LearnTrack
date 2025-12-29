@@ -3,6 +3,7 @@ import com.airtribe.learntrack.exception.InvalidInputException;
 import com.airtribe.learntrack.service.CourseService;
 import com.airtribe.learntrack.service.EnrollmentService;
 import com.airtribe.learntrack.service.StudentService;
+import com.airtribe.learntrack.util.inputValidator;
 
 import java.util.Scanner;
 
@@ -36,7 +37,14 @@ public class Main {
         String lastName = input.nextLine().trim();
         System.out.println(" email : ");
         String email = input.nextLine().trim();
-        StudentService.addStudent(firstName, lastName, email);
+        boolean isValidEmail = inputValidator.isValidEmail(email);
+        if (!isValidEmail) {
+            System.out.println(" email is not valid ");
+            return;
+
+        } else {
+            StudentService.addStudent(firstName, lastName, email);
+        }
     }
 
     static void addCourse() {
