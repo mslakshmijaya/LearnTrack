@@ -4,10 +4,10 @@ import com.airtribe.learntrack.util.EnrollmentStatus;
 import com.airtribe.learntrack.util.IdGenerator;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Enrollment {
-    private String enrollmentDate;
+    private LocalDate enrollmentDate;
     private EnrollmentStatus status;
     private int id;
     private long studentId;
@@ -19,7 +19,7 @@ public class Enrollment {
         this.studentId = studentId;
         this.courseId = courseId;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.enrollmentDate = sdf.format(new Date());
+        this.enrollmentDate = LocalDate.now();
         this.status = EnrollmentStatus.ACTIVE;
     }
 
@@ -47,11 +47,11 @@ public class Enrollment {
         this.courseId = courseId;
     }
 
-    public String getEnrollmentDate() {
+    public LocalDate getEnrollmentDate() {
         return enrollmentDate;
     }
 
-    public void setEnrollmentDate(String enrollmentDate) {
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
     }
 
